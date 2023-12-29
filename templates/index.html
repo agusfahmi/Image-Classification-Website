@@ -27,7 +27,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="">Home</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/">Home</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Klasifikasi Gambar</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Syarat Ketentuan</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
@@ -73,28 +73,34 @@
                     <br>
                     <div class="form-group">        
                       <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-success">Prediksi</button>
                       </div>
                     </div>
                   </form>
                   <br>
-                {% if prediction %}
-                <img src="{{img_path}}" height="400px" width="400px">
-                  <h3> Prediksi:  {{prediction}} </h2>
-                    {% endif %}
-                {% if accuracy %}
-                <h3>Akurasi : {{'%0.2f'|format(accuracy)}} %</h3>
-                  {% endif %}
-                {% if prediction_time %}
-                <h3>Waktu Prediksi : {{ '%0.1f'|format(prediction_time) }} detik</h3>
-                  {% endif %}
+                  <br>
+                  {% if prediction %}
+                  <div class="result-container">
+                      <img src="{{img_path}}" class="prediction-image" alt="Predicted Image">
+                      <h4 class="prediction-label">Prediksi : {{prediction}}</h4>
+                  </div>
+              {% endif %}
+              
+              {% if accuracy %}
+                  <h4 class="accuracy-label">Akurasi : {{'%0.2f'|format(accuracy)}} %</h4>
+              {% endif %}
+              
+              {% if prediction_time %}
+                  <h4 class="time-label">Waktu Prediksi : {{ '%0.1f'|format(prediction_time) }} detik</h4>
+              {% endif %}
+              
             </div>
         </section>
         <!-- About Section-->
         <section class="page-section bg-primary text-white mb-0" id="about">
             <div class="container">
                 <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-white">Petunjuk Penggunaan</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -103,12 +109,17 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Aplikasi Klasifikasi Objek Papper Rock dan Scissor.</p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">Teknologi yang dipakai untuk membangun aplikasi ini yakni dengan Tensorflow dan Flask</p></div>
+                    <div class="col-lg-8 mx-auto">
+                        <p class="h5">1. Unggah Gambar</p>
+                        <p>Upload gambar yang ingin Anda klasifikasikan.</p>
+                        <p class="h5">2. Klik Tombol Prediksi</p>
+                        <p>Hasil klasifikasi gambar akan ditampilkan dibawah upload gambar.</p>
+                    </div>
                 </div>
+                
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="http://127.0.0.1:5000/">
+                    <a class="btn btn-xl btn-outline-light" href="#portfolio">
                         <i class="bi bi-arrow-up-right-square"></i>
                         Mulai Mencoba!
                     </a>
@@ -119,7 +130,7 @@
         <section class="page-section" id="contact">
             <div class="container">
                 <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Tentang</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -129,8 +140,8 @@
                 <!-- Contact Section Form-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
-                        <p>
-                            Untuk lebih lanjut dapat menghubungi nomor yang ada pada bagian kontak
+                        <p class="h5">
+                            Aplikasi Klasifikasi Objek Papper Rock dan Scissor. Teknologi yang dipakai untuk membangun aplikasi ini yakni dengan Tensorflow dan Flask
                         </p>
                     </div>
                 </div>

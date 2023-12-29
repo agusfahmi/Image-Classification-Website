@@ -6,7 +6,7 @@ import time
 
 app = Flask(__name__)
 
-names = ['papper', 'rock', 'scissors']
+names = ['Papper', 'Rock', 'Scissors']
 
 def predict_label(img_path):
     model = load_model('model.h5')
